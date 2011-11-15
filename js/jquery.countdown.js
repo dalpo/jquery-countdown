@@ -6,8 +6,6 @@
  *
  * http://docs.jquery.com/License
  *
- * IE fix by Andrea Cardinale <a.cardinale@webandtech.it> [23 September 2009]
- * IE fix added by Giguashvili, Levan <levangig@gmail.com> [04 April 2011]
  */
 
 (function($){
@@ -105,7 +103,6 @@
 					return parseInt(backgroundPos.replace('px', ''), 10);
 				} else {
 					var backgroundPos = digits[elem].css('backgroundPosition').split(' ');
-					console.log("asd: " + backgroundPos[1]);
 					return parseInt(backgroundPos[1].replace('px', ''), 10);
 				}
 			}
@@ -157,5 +154,6 @@
 	  createDigits(this);
 	  interval = setInterval(moveStep(digits.length - 1), 1000);
 	};
+
 
 })(jQuery);
