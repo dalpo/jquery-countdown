@@ -1,5 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
@@ -9,12 +9,12 @@
     <script src="js/jquery.countdown.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript">
       $(document).ready(function(){
-	
+
 				//countdown
 				var giorni, ore, minuti, secondi;
 				giorni = ore = minuti = secondi = 0;
 				var today = new Date();
-				var endDate = new Date(today.getFullYear(), 9, 19, 12, 0);
+				var endDate = new Date(today.getFullYear(), 11, 25, 12, 0);
 
 				if (today.getTime() <= endDate.getTime()) {
 					var one_days=1000*60*60*24;
@@ -27,9 +27,12 @@
 					var minuti 	= Math.floor((endDate.getTime()-today.getTime())/(one_minutes));
 					var secondi	= Math.ceil((endDate.getTime()-today.getTime())/(one_seconds));
 
-					ore = ore - 24 * giorni;
-					minuti = minuti - ore*60;
-					secondi = secondi - (minuti*60) - (ore*60*60);
+          var ore_m = ore;
+          var minuti_m = minuti;
+          // alert(giorni);
+          ore = ore - 24*giorni;
+					minuti = minuti - ore_m*60;
+					secondi = secondi - (minuti_m*60);
 
 				}
 
@@ -43,14 +46,13 @@
 					secondi = "0" + ore;
 				}
 
-				var formattedTime = ore + ":" + minuti + ":" + secondi;
-
+				var formattedTime = '0' + giorni + ':' + ore + ":" + minuti + ":" + secondi;
 
 				$("#counter").countdown({
 				  image: "img/digits.png",
 				  startTime: formattedTime
 				});
-				
+
       });
     </script>
     <style type="text/css">
@@ -65,7 +67,7 @@
 				font-size: 30px;
 				left: 120px;
 				height: 77px;
-				width: 380px;
+				width: 500px;
 			}
 			#counter .cntDigit {
 				position: relative;
